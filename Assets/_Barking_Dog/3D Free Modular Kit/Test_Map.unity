@@ -186,6 +186,45 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1211102863}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &19776041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6181721804195171677, guid: 22c435e286ae6c94da99e0047da41ad2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2100766474947542889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &19776042 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7144732337065547605, guid: 22c435e286ae6c94da99e0047da41ad2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2100766474947542889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &19776043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19776041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac906749168091418e958dea169e04b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRoot: {fileID: 2100766474947542893}
+  cameraRoot: {fileID: 19776042}
+  invert: 0
+  canUnlock: 1
+  sensitivity: 1
+  smoothSteps: 10
+  smoothWeight: 0.4
+  rollAngle: 1
+  rollSpeed: 3
+  defaultLookLimits: {x: -70, y: 80}
+  lookAngles: {x: 0, y: 0}
+  currentMouseLook: {x: 0, y: 0}
+  smoothMove: {x: 0, y: 0}
+  currentRollAngle: 0
+  lastLookFrame: 0
 --- !u!4 &23868181 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 409034, guid: a4c18952442944083b1fddc06ba477c2,
@@ -6275,8 +6314,18 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6181721804195171677, guid: 22c435e286ae6c94da99e0047da41ad2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 19776043}
   m_SourcePrefab: {fileID: 100100000, guid: 22c435e286ae6c94da99e0047da41ad2, type: 3}
+--- !u!4 &2100766474947542893 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2779446794877354222, guid: 22c435e286ae6c94da99e0047da41ad2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2100766474947542889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
