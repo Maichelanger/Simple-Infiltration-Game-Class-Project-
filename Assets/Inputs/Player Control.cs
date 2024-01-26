@@ -47,8 +47,26 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Camera"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""b2700ded-141a-4c27-b50d-1f209f2e7f26"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""35a96542-5f0b-4319-bd43-9821b0c72a3c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Crouch"",
+                    ""type"": ""Button"",
+                    ""id"": ""90804e12-6cc6-4d25-82d4-56fa44e699aa"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -123,8 +141,19 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""d6f2c291-d96d-438c-bd20-42a0c2841fca"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": ""SlowTap(duration=0.4)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""Mouse"",
-                    ""id"": ""a658cf90-2f1d-464f-83ce-11a69bdf26cf"",
+                    ""id"": ""75afcbd4-f781-4597-81a5-8696651c6ea0"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -135,7 +164,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""fc35df39-070f-45bd-a5fc-3071f45ab841"",
+                    ""id"": ""b8b97e2d-fbce-432b-828e-833024b18c53"",
                     ""path"": ""<Mouse>/delta/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -146,7 +175,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""f06bbfee-508c-46d4-88be-35f9b698583c"",
+                    ""id"": ""185f6703-a152-43cf-a0fb-b63b955c829d"",
                     ""path"": ""<Mouse>/delta/down"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -157,7 +186,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""1ce97d83-0a42-4ae7-b797-793535b8d1f4"",
+                    ""id"": ""f89afb3d-04d2-4ea2-86ef-ad7b4229e442"",
                     ""path"": ""<Mouse>/delta/left"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -168,7 +197,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""a8824f9e-3723-4153-837f-45a2f487828d"",
+                    ""id"": ""07ccb0a9-4638-4f0d-9e02-19ec19fde8d4"",
                     ""path"": ""<Mouse>/delta/right"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -176,6 +205,17 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""action"": ""Camera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7fa643b5-e725-460b-b8c9-da6ca683135b"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -187,6 +227,8 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         m_InGame_Shoot = m_InGame.FindAction("Shoot", throwIfNotFound: true);
         m_InGame_Movement = m_InGame.FindAction("Movement", throwIfNotFound: true);
         m_InGame_Camera = m_InGame.FindAction("Camera", throwIfNotFound: true);
+        m_InGame_Sprint = m_InGame.FindAction("Sprint", throwIfNotFound: true);
+        m_InGame_Crouch = m_InGame.FindAction("Crouch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,6 +293,8 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Shoot;
     private readonly InputAction m_InGame_Movement;
     private readonly InputAction m_InGame_Camera;
+    private readonly InputAction m_InGame_Sprint;
+    private readonly InputAction m_InGame_Crouch;
     public struct InGameActions
     {
         private @PlayerControl m_Wrapper;
@@ -258,6 +302,8 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_InGame_Shoot;
         public InputAction @Movement => m_Wrapper.m_InGame_Movement;
         public InputAction @Camera => m_Wrapper.m_InGame_Camera;
+        public InputAction @Sprint => m_Wrapper.m_InGame_Sprint;
+        public InputAction @Crouch => m_Wrapper.m_InGame_Crouch;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -276,6 +322,12 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Camera.started += instance.OnCamera;
             @Camera.performed += instance.OnCamera;
             @Camera.canceled += instance.OnCamera;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
+            @Crouch.started += instance.OnCrouch;
+            @Crouch.performed += instance.OnCrouch;
+            @Crouch.canceled += instance.OnCrouch;
         }
 
         private void UnregisterCallbacks(IInGameActions instance)
@@ -289,6 +341,12 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Camera.started -= instance.OnCamera;
             @Camera.performed -= instance.OnCamera;
             @Camera.canceled -= instance.OnCamera;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
+            @Crouch.started -= instance.OnCrouch;
+            @Crouch.performed -= instance.OnCrouch;
+            @Crouch.canceled -= instance.OnCrouch;
         }
 
         public void RemoveCallbacks(IInGameActions instance)
@@ -311,5 +369,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
+        void OnCrouch(InputAction.CallbackContext context);
     }
 }

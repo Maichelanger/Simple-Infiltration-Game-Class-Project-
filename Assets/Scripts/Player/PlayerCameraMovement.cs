@@ -31,6 +31,9 @@ public class PlayerCameraMovement : MonoBehaviour
     private void OnEnable()
     {
         playerControl.Enable();
+
+        //playerControl.InGame.Camera.performed += OnLook;
+        //playerControl.InGame.Camera.canceled += OnLook;
     }
 
     private void Start()
@@ -41,12 +44,19 @@ public class PlayerCameraMovement : MonoBehaviour
     private void Update()
     {
         LockAndUnlockCursor();
-        
+
         if (Cursor.lockState == CursorLockMode.Locked)
         {
             LookAround();
         }
     }
+
+    /**
+    private void OnLook(InputAction.CallbackContext context)
+    {
+        currentMouseLook = context.ReadValue<Vector2>();
+    }
+    **/
 
     private void LockAndUnlockCursor()
     {
@@ -73,7 +83,7 @@ public class PlayerCameraMovement : MonoBehaviour
 
         lookAngles.x = Mathf.Clamp(lookAngles.x, defaultLookLimits.x, defaultLookLimits.y);
 
-        // Commented code is for having a rotating camera when moving the mouse
+        // Commented code is for having a rotating camera in Z when moving the mouse
         // currentRollAngle = Mathf.Lerp(currentRollAngle, Input.GetAxisRaw("Mouse X") * rollAngle, Time.deltaTime * 3f);
 
         cameraRoot.localRotation = Quaternion.Euler(lookAngles.x, 0f, currentRollAngle);

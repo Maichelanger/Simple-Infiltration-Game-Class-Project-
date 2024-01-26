@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5.0f;
+    public float walkSpeed = 5.0f;
 
     private CharacterController charController;
     private Vector3 moveDirection;
@@ -30,6 +30,14 @@ public class PlayerMovement : MonoBehaviour
         //playerControl.InGame.Shoot.canceled += OnShoot;
     }
 
+    private void OnDisable()
+    {
+        playerControl.InGame.Movement.performed -= OnMovement;
+        playerControl.InGame.Movement.canceled -= OnMovement;
+
+        playerControl.Disable();
+    }
+
     private void Update()
     {
         MovementCalculation();
@@ -45,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = new Vector3(movementInput.x, 0.0f, movementInput.y);
 
         moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= speed * Time.deltaTime;
+        moveDirection *= walkSpeed * Time.deltaTime;
 
         ApplyGravity();
 

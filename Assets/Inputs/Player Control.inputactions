@@ -25,8 +25,26 @@
                 },
                 {
                     "name": "Camera",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "b2700ded-141a-4c27-b50d-1f209f2e7f26",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Sprint",
+                    "type": "Button",
+                    "id": "35a96542-5f0b-4319-bd43-9821b0c72a3c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Crouch",
+                    "type": "Button",
+                    "id": "90804e12-6cc6-4d25-82d4-56fa44e699aa",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -101,8 +119,19 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "",
+                    "id": "d6f2c291-d96d-438c-bd20-42a0c2841fca",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "SlowTap(duration=0.4)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "Mouse",
-                    "id": "a658cf90-2f1d-464f-83ce-11a69bdf26cf",
+                    "id": "75afcbd4-f781-4597-81a5-8696651c6ea0",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -113,7 +142,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "fc35df39-070f-45bd-a5fc-3071f45ab841",
+                    "id": "b8b97e2d-fbce-432b-828e-833024b18c53",
                     "path": "<Mouse>/delta/up",
                     "interactions": "",
                     "processors": "",
@@ -124,7 +153,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "f06bbfee-508c-46d4-88be-35f9b698583c",
+                    "id": "185f6703-a152-43cf-a0fb-b63b955c829d",
                     "path": "<Mouse>/delta/down",
                     "interactions": "",
                     "processors": "",
@@ -135,7 +164,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "1ce97d83-0a42-4ae7-b797-793535b8d1f4",
+                    "id": "f89afb3d-04d2-4ea2-86ef-ad7b4229e442",
                     "path": "<Mouse>/delta/left",
                     "interactions": "",
                     "processors": "",
@@ -146,7 +175,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "a8824f9e-3723-4153-837f-45a2f487828d",
+                    "id": "07ccb0a9-4638-4f0d-9e02-19ec19fde8d4",
                     "path": "<Mouse>/delta/right",
                     "interactions": "",
                     "processors": "",
@@ -154,6 +183,17 @@
                     "action": "Camera",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "7fa643b5-e725-460b-b8c9-da6ca683135b",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
