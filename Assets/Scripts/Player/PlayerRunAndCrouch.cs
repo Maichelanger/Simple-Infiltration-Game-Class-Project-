@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerRunAndCrouch : MonoBehaviour
 {
+    public float walkSpeed = 5f;
     public float sprintSpeed = 10f;
     public float crouchSpeed = 2f;
 
@@ -10,7 +11,6 @@ public class PlayerRunAndCrouch : MonoBehaviour
     private PlayerControl playerControl;
     private PlayerSound playerSound;
     private Transform cameraRoot;
-    private float walkSpeed;
     private float standHeight = 1.6f;
     private float crouchHeight = 1f;
     private float sprintSoundVolume = 1f;
@@ -27,7 +27,6 @@ public class PlayerRunAndCrouch : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerSound = GetComponentInChildren<PlayerSound>();
         cameraRoot = transform.GetChild(0);
-        walkSpeed = playerMovement.walkSpeed;
     }
 
     private void Start()
@@ -59,9 +58,9 @@ public class PlayerRunAndCrouch : MonoBehaviour
 
     private void OnSprint(InputAction.CallbackContext context)
     {
-        if (!isCrouching)
+        if (!isCrouching && context.started)
         {
-            playerMovement.walkSpeed = sprintSpeed;
+            playerMovement.ChangeSpeed(sprintSpeed, "run");
 
             playerSound.stepDistance = sprintStepDistance;
             playerSound.minVol = sprintSoundVolume;
@@ -73,7 +72,7 @@ public class PlayerRunAndCrouch : MonoBehaviour
     {
         if (!isCrouching)
         {
-            playerMovement.walkSpeed = walkSpeed;
+            playerMovement.ChangeSpeed(walkSpeed, "walk");
 
             playerSound.stepDistance = walkStepDistance;
             playerSound.minVol = walkSoundMinVolume;
@@ -83,10 +82,10 @@ public class PlayerRunAndCrouch : MonoBehaviour
 
     private void OnCrouch(InputAction.CallbackContext context)
     {
-        if(isCrouching)
+        if (isCrouching)
         {
             cameraRoot.localPosition = new Vector3(0f, standHeight, 0f);
-            playerMovement.walkSpeed = walkSpeed;
+            playerMovement.ChangeSpeed(walkSpeed, "walk");
 
             playerSound.stepDistance = walkStepDistance;
             playerSound.minVol = walkSoundMinVolume;
@@ -97,7 +96,7 @@ public class PlayerRunAndCrouch : MonoBehaviour
         else
         {
             cameraRoot.localPosition = new Vector3(0f, crouchHeight, 0f);
-            playerMovement.walkSpeed = crouchSpeed;
+            playerMovement.ChangeSpeed(crouchSpeed, "crouch");
 
             playerSound.stepDistance = crouchStepDistance;
             playerSound.minVol = crouchSoundVolume;

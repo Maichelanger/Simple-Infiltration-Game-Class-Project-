@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 422538143439800421}
   - component: {fileID: 2354995562092499371}
   - component: {fileID: 489487058260762636}
+  - component: {fileID: 4481046669515353263}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -607,6 +608,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprintSpeed: 10
   crouchSpeed: 2
+--- !u!114 &4481046669515353263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7135052003604711290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bb8d7e18eff9cb44bb3cd06e63e80d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponAnimator: {fileID: 8066323043648532003}
 --- !u!1001 &1440972594583662999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -674,8 +688,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 191150, guid: 841f0ca7a430c324d92c5583a9df3793,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8066323043648532003}
   m_SourcePrefab: {fileID: 100100000, guid: 841f0ca7a430c324d92c5583a9df3793, type: 3}
+--- !u!1 &1440972594583542585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 191150, guid: 841f0ca7a430c324d92c5583a9df3793,
+    type: 3}
+  m_PrefabInstance: {fileID: 1440972594583662999}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8066323043648532003
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440972594583542585}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: aed9f2c04b9a96f48aca423b8a1ace89, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1440972594583828473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 427630, guid: 841f0ca7a430c324d92c5583a9df3793,

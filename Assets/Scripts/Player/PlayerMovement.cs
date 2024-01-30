@@ -4,18 +4,19 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float walkSpeed = 5.0f;
-
     private CharacterController charController;
+    private PlayerAnimationsController animationScript;
     private Vector3 moveDirection;
     private Vector2 movementInput;
     private float gravity = 2f;
     private float verticalVelocity = 0.0f;
+    private float currentSpeed = 5.0f;
     private PlayerControl playerControl;
 
     private void Awake()
     {
         charController = GetComponent<CharacterController>();
+        animationScript = GetComponent<PlayerAnimationsController>();
         playerControl = new PlayerControl();
     }
 
@@ -25,9 +26,6 @@ public class PlayerMovement : MonoBehaviour
 
         playerControl.InGame.Movement.performed += OnMovement;
         playerControl.InGame.Movement.canceled += OnMovement;
-
-        //playerControl.InGame.Shoot.performed += OnShoot;
-        //playerControl.InGame.Shoot.canceled += OnShoot;
     }
 
     private void OnDisable()
@@ -43,17 +41,12 @@ public class PlayerMovement : MonoBehaviour
         MovementCalculation();
     }
 
-    private void FixedUpdate()
-    {
-
-    }
-
     private void MovementCalculation()
     {
         moveDirection = new Vector3(movementInput.x, 0.0f, movementInput.y);
 
         moveDirection = transform.TransformDirection(moveDirection);
-        moveDirection *= walkSpeed * Time.deltaTime;
+        moveDirection *= currentSpeed * Time.deltaTime;
 
         ApplyGravity();
 
@@ -70,12 +63,20 @@ public class PlayerMovement : MonoBehaviour
     private void OnMovement(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
+
+        if (movementInput.x == 0 && movementInput.y == 0)
+        {
+            animationScript.UpdateStates("idle");
+        } else
+        {
+            animationScript.UpdateStates("walk");
+        }
     }
 
-    /**
-    private void OnShoot(InputAction.CallbackContext context)
+    public void ChangeSpeed(float newSpeed, string newAnimation)
     {
-        Debug.Log("Shoot");
+        currentSpeed = newSpeed;
+
+        animationScript.UpdateStates(newAnimation);
     }
-    **/
 }
