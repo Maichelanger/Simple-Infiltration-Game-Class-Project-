@@ -328,6 +328,37 @@ MonoBehaviour:
   minVol: 0
   maxVol: 0
   stepDistance: 0
+--- !u!1 &3554117072233372122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3019592263460742358}
+  m_Layer: 6
+  m_Name: Shooting Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3019592263460742358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3554117072233372122}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.054, z: 0.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1440972594583828473}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6181721804195171677
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8537e13de4c2fe47b7f76c1a80cf9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
 --- !u!114 &489487058260762636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -606,6 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01dabe9976f34ff498d205fe0e87cdf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSpeed: 5
   sprintSpeed: 10
   crouchSpeed: 2
 --- !u!114 &4481046669515353263
@@ -687,7 +718,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 427630, guid: 841f0ca7a430c324d92c5583a9df3793,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3019592263460742358}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 191150, guid: 841f0ca7a430c324d92c5583a9df3793,
         type: 3}
