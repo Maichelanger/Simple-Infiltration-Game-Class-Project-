@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         MovementCalculation();
+        CheckInputs();
     }
 
     private void MovementCalculation()
@@ -63,11 +64,15 @@ public class PlayerMovement : MonoBehaviour
     private void OnMovement(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();
+    }
 
+    private void CheckInputs()
+    {
         if (movementInput.x == 0 && movementInput.y == 0)
         {
             animationScript.UpdateStates("idle");
-        } else
+        }
+        else if (animationScript.GetCurrentState() == "idle")
         {
             animationScript.UpdateStates("walk");
         }

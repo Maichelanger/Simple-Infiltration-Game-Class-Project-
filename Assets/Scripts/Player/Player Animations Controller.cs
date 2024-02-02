@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerAnimationsController : MonoBehaviour
@@ -82,5 +83,15 @@ public class PlayerAnimationsController : MonoBehaviour
         isWalking = false;
         isRunning = false;
         isCrouching = false;
+    }
+
+    internal string GetCurrentState()
+    {
+        if (isIdle) return "idle";
+        if (isWalking) return "walk";
+        if (isRunning) return "run";
+        if (isCrouching) return "crouch";
+
+        return "idle";
     }
 }
