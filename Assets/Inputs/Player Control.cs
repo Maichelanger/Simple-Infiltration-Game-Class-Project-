@@ -37,6 +37,15 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Aim"",
+                    ""type"": ""Button"",
+                    ""id"": ""077587a2-9f6a-44bf-8c5d-72f65513dfa0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""8ac48e08-e78c-410e-9fc6-e63bb0d68ba5"",
@@ -216,6 +225,17 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
                     ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9c07799b-075d-47db-88df-30b5ce0323b1"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""SlowTap(duration=0.4)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -225,6 +245,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         // InGame
         m_InGame = asset.FindActionMap("InGame", throwIfNotFound: true);
         m_InGame_Shoot = m_InGame.FindAction("Shoot", throwIfNotFound: true);
+        m_InGame_Aim = m_InGame.FindAction("Aim", throwIfNotFound: true);
         m_InGame_Movement = m_InGame.FindAction("Movement", throwIfNotFound: true);
         m_InGame_Camera = m_InGame.FindAction("Camera", throwIfNotFound: true);
         m_InGame_Sprint = m_InGame.FindAction("Sprint", throwIfNotFound: true);
@@ -291,6 +312,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_InGame;
     private List<IInGameActions> m_InGameActionsCallbackInterfaces = new List<IInGameActions>();
     private readonly InputAction m_InGame_Shoot;
+    private readonly InputAction m_InGame_Aim;
     private readonly InputAction m_InGame_Movement;
     private readonly InputAction m_InGame_Camera;
     private readonly InputAction m_InGame_Sprint;
@@ -300,6 +322,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
         private @PlayerControl m_Wrapper;
         public InGameActions(@PlayerControl wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_InGame_Shoot;
+        public InputAction @Aim => m_Wrapper.m_InGame_Aim;
         public InputAction @Movement => m_Wrapper.m_InGame_Movement;
         public InputAction @Camera => m_Wrapper.m_InGame_Camera;
         public InputAction @Sprint => m_Wrapper.m_InGame_Sprint;
@@ -316,6 +339,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @Aim.started += instance.OnAim;
+            @Aim.performed += instance.OnAim;
+            @Aim.canceled += instance.OnAim;
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
@@ -335,6 +361,9 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @Aim.started -= instance.OnAim;
+            @Aim.performed -= instance.OnAim;
+            @Aim.canceled -= instance.OnAim;
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
@@ -367,6 +396,7 @@ public partial class @PlayerControl: IInputActionCollection2, IDisposable
     public interface IInGameActions
     {
         void OnShoot(InputAction.CallbackContext context);
+        void OnAim(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);

@@ -74,7 +74,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -325,6 +325,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c1379945bfb10bd41a99b112783b7c55, type: 3}
   - {fileID: 8300000, guid: 13077f0368e38ff4b94a706768c8a012, type: 3}
   - {fileID: 8300000, guid: 47852a4a3a66b184d80ce638a18f6027, type: 3}
+  shootingSound: {fileID: 8300000, guid: d9d42765ad2297e44a7a4718738fadbd, type: 3}
   minVol: 0
   maxVol: 0
   stepDistance: 0
@@ -432,6 +433,7 @@ GameObject:
   - component: {fileID: 3581984998352096892}
   - component: {fileID: 9001844722645124787}
   - component: {fileID: 5149179084596679780}
+  - component: {fileID: 5077426038367149122}
   m_Layer: 6
   m_Name: FP Camera
   m_TagString: Untagged
@@ -493,7 +495,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 64
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -549,6 +551,27 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!95 &5077426038367149122
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648206529550483373}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5e2dff1954743434cb2b03ef1f6acf81, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7135052003604711290
 GameObject:
   m_ObjectHideFlags: 0
