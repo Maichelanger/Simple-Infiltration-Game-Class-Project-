@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerSound : MonoBehaviour
 {
     [SerializeField] private AudioClip[] footstepSounds;
+    [SerializeField] private AudioClip shootingSound;
     [HideInInspector] public float minVol,maxVol;
     [HideInInspector] public float stepDistance;
 
@@ -45,5 +46,10 @@ public class PlayerSound : MonoBehaviour
         audioSource.volume = Random.Range(minVol,maxVol);
         AudioClip clip = footstepSounds[Random.Range(0,footstepSounds.Length)];
         audioSource.PlayOneShot(clip);
+    }
+
+    public void PlayShootingSound()
+    {
+        audioSource.PlayOneShot(shootingSound);
     }
 }

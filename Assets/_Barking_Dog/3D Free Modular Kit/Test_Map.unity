@@ -2915,12 +2915,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1753235008}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1198871788 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8066323043648532003, guid: 22c435e286ae6c94da99e0047da41ad2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2100766474947542889}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1206673541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6273,16 +6267,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2899377947613684511, guid: 22c435e286ae6c94da99e0047da41ad2,
+        type: 3}
+      propertyPath: shootingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d9d42765ad2297e44a7a4718738fadbd, type: 3}
+    - target: {fileID: 6975228218589363167, guid: 22c435e286ae6c94da99e0047da41ad2,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 183
+      objectReference: {fileID: 0}
     - target: {fileID: 7135052003604711290, guid: 22c435e286ae6c94da99e0047da41ad2,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7259480440806092471, guid: 22c435e286ae6c94da99e0047da41ad2,
+    - target: {fileID: 9001844722645124787, guid: 22c435e286ae6c94da99e0047da41ad2,
         type: 3}
-      propertyPath: weaponAnimator
-      value: 
-      objectReference: {fileID: 1198871788}
+      propertyPath: m_CullingMask.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

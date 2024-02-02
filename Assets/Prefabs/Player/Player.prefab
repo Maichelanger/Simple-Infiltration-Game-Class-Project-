@@ -493,7 +493,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -665,7 +665,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 290e00350c20c56438e9f209f709bc57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponAnimator: {fileID: 0}
+  weaponAnimator: {fileID: 8066323043648532003}
+  bulletPrefab: {fileID: 6456824975974895963, guid: 4c7fa39631e59f44eb4bce48a6203ff0,
+    type: 3}
+  firePoint: {fileID: 3019592263460742358}
   fireRate: 15
 --- !u!1001 &1440972594583662999
 PrefabInstance:
