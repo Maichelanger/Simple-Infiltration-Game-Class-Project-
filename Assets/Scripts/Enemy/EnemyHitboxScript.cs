@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class EnemyHitboxScript : MonoBehaviour
 {
-    internal void Impact()
+    [SerializeField] private int damage = 10;
+
+    public void Impact()
     {
-        throw new NotImplementedException();
+        Debug.Log("Enemy Hit");
     }
 }

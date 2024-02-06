@@ -18,11 +18,11 @@ public class BulletBehaviour : MonoBehaviour
         Invoke(nameof(DestroyObject), timeout);
     }
 
-    private void OnTriggerEnter(Collider hitInfo)
+    private void OnCollisionEnter(Collision hitInfo)
     {
-        if(hitInfo.CompareTag("EnemyHitbox"))
+        if(hitInfo.collider.CompareTag("EnemyHitbox"))
         {
-            EnemyHitboxScript enemyHit = hitInfo.GetComponent<EnemyHitboxScript>();
+            EnemyHitboxScript enemyHit = hitInfo.collider.GetComponent<EnemyHitboxScript>();
 
             if(enemyHit != null)
             {
@@ -30,11 +30,6 @@ public class BulletBehaviour : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
-    }
-
-    private void OnCollisionEnter(Collision hitInfo)
-    {
         Destroy(gameObject);
     }
 
