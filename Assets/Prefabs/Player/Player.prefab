@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 3238427761361523333}
   m_Layer: 0
   m_Name: Viewpoint
-  m_TagString: Untagged
+  m_TagString: Viewpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 5077426038367149122}
   m_Layer: 6
   m_Name: FP Camera
-  m_TagString: Untagged
+  m_TagString: FP Camera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: 489487058260762636}
   - component: {fileID: 4481046669515353263}
   - component: {fileID: 7259480440806092471}
+  - component: {fileID: 8521234600854231642}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -648,6 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8537e13de4c2fe47b7f76c1a80cf9e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCrouching: 0
 --- !u!114 &489487058260762636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,6 +678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponAnimator: {fileID: 8066323043648532003}
+  fpCameraAnimator: {fileID: 5077426038367149122}
 --- !u!114 &7259480440806092471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -693,6 +696,23 @@ MonoBehaviour:
     type: 3}
   firePoint: {fileID: 3019592263460742358}
   fireRate: 15
+--- !u!114 &8521234600854231642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7135052003604711290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded18a135f78aed4aa7785475b1ef602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isIdle: 0
+  isWalking: 0
+  isRunning: 0
+  isCrouching: 0
+  isAiming: 0
 --- !u!1001 &1440972594583662999
 PrefabInstance:
   m_ObjectHideFlags: 0

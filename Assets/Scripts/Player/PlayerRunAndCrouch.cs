@@ -10,6 +10,7 @@ public class PlayerRunAndCrouch : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerControl playerControl;
     private PlayerSound playerSound;
+    private PlayerData playerData;
     private Transform cameraRoot;
     private float standHeight = 1.6f;
     private float crouchHeight = 1f;
@@ -19,7 +20,6 @@ public class PlayerRunAndCrouch : MonoBehaviour
     private float walkStepDistance = 0.4f;
     private float sprintStepDistance = 0.25f;
     private float crouchStepDistance = 0.5f;
-    private bool isCrouching = false;
 
     private void Awake()
     {
@@ -27,6 +27,7 @@ public class PlayerRunAndCrouch : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerSound = GetComponentInChildren<PlayerSound>();
         cameraRoot = transform.GetChild(0);
+        playerData = GetComponent<PlayerData>();
     }
 
     private void Start()
@@ -58,7 +59,7 @@ public class PlayerRunAndCrouch : MonoBehaviour
 
     private void OnSprint(InputAction.CallbackContext context)
     {
-        if (!isCrouching && context.started)
+        if (!playerData.isCrouching && context.started)
         {
             playerMovement.ChangeSpeed(sprintSpeed, "run");
 
@@ -70,7 +71,7 @@ public class PlayerRunAndCrouch : MonoBehaviour
 
     private void OnWalk(InputAction.CallbackContext context)
     {
-        if (!isCrouching)
+        if (!playerData.isCrouching)
         {
             playerMovement.ChangeSpeed(walkSpeed, "walk");
 
@@ -82,7 +83,7 @@ public class PlayerRunAndCrouch : MonoBehaviour
 
     private void OnCrouch(InputAction.CallbackContext context)
     {
-        if (isCrouching)
+        if (playerData.isCrouching)
         {
             cameraRoot.localPosition = new Vector3(0f, standHeight, 0f);
             playerMovement.ChangeSpeed(walkSpeed, "walk");
@@ -91,7 +92,7 @@ public class PlayerRunAndCrouch : MonoBehaviour
             playerSound.minVol = walkSoundMinVolume;
             playerSound.maxVol = walkSoundMaxVolume;
 
-            isCrouching = false;
+            playerData.isCrouching = false;
         }
         else
         {
@@ -102,7 +103,7 @@ public class PlayerRunAndCrouch : MonoBehaviour
             playerSound.minVol = crouchSoundVolume;
             playerSound.maxVol = crouchSoundVolume;
 
-            isCrouching = true;
+            playerData.isCrouching = true;
         }
     }
 }

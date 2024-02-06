@@ -6335,6 +6335,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6181721804195171677, guid: 22c435e286ae6c94da99e0047da41ad2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Viewpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 6648206529550483373, guid: 22c435e286ae6c94da99e0047da41ad2,
+        type: 3}
+      propertyPath: m_TagString
+      value: FP Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 7135052003604711290, guid: 22c435e286ae6c94da99e0047da41ad2,
         type: 3}
       propertyPath: m_Name

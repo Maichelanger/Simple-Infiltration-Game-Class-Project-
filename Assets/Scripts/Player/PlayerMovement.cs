@@ -12,12 +12,14 @@ public class PlayerMovement : MonoBehaviour
     private float verticalVelocity = 0.0f;
     private float currentSpeed = 5.0f;
     private PlayerControl playerControl;
+    private PlayerData playerData;
 
     private void Awake()
     {
         charController = GetComponent<CharacterController>();
         animationScript = GetComponent<PlayerAnimationsController>();
         playerControl = new PlayerControl();
+        playerData = GetComponent<PlayerData>();
     }
 
     private void OnEnable()

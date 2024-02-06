@@ -4,14 +4,17 @@ using UnityEngine;
 public class PlayerAnimationsController : MonoBehaviour
 {
     public Animator weaponAnimator;
+    public Animator fpCameraAnimator;
 
-    private bool isIdle = false;
-    private bool isWalking = false;
-    private bool isRunning = false;
-    private bool isCrouching = false;
+    private PlayerData playerData;
+
+    private void Awake()
+    {
+        playerData = GetComponent<PlayerData>();
+    }
 
     public void UpdateStates(string newState)
-    {   
+    {
         switch (newState.ToLower())
         {
             case "walk":
@@ -26,71 +29,114 @@ public class PlayerAnimationsController : MonoBehaviour
             case "idle":
                 OnIdle();
                 break;
+            case "aim":
+                OnAim();
+                break;
         }
     }
 
     private void OnWalk()
     {
-        if (isWalking) return;
+        if (playerData.isWalking) return;
+        else if (playerData.isCrouching && playerData.isIdle)
+        {
+            OnCrouchWalk();
+            return;
+        }
+
+        if (playerData.isAiming) fpCameraAnimator.SetBool("isAiming", true);
+
 
         AllToFalse();
 
-        isWalking = true;
+        playerData.isWalking = true;
         weaponAnimator.SetBool("isWalking", true);
         weaponAnimator.SetBool("isRunning", false);
         weaponAnimator.SetBool("isCrouchingWalk", false);
+        weaponAnimator.SetBool("isAiming", false);
     }
 
     private void OnSprint()
     {
-        if (isRunning) return;
+        if (playerData.isRunning) return;
+        if (playerData.isAiming) fpCameraAnimator.SetBool("isAiming", false);
 
         AllToFalse();
 
-        isRunning = true;
+        playerData.isRunning = true;
         weaponAnimator.SetBool("isWalking", false);
         weaponAnimator.SetBool("isRunning", true);
         weaponAnimator.SetBool("isCrouchingWalk", false);
+        weaponAnimator.SetBool("isAiming", false);
     }
 
     private void OnCrouchWalk()
     {
-        if (isCrouching) return;
+        if (playerData.isCrouchingWalk) return;
+        if (playerData.isAiming) fpCameraAnimator.SetBool("isAiming", true);
 
         AllToFalse();
 
-        isCrouching = true;
+        playerData.isCrouchingWalk = true;
         weaponAnimator.SetBool("isWalking", false);
         weaponAnimator.SetBool("isRunning", false);
         weaponAnimator.SetBool("isCrouchingWalk", true);
+        weaponAnimator.SetBool("isAiming", false);
     }
 
     private void OnIdle()
     {
-        if (isIdle) return;
+        if (playerData.isIdle) return;
+        else if (playerData.isAiming)
+        {
+            OnAim();
+            return;
+        }
 
         AllToFalse();
 
-        isIdle = true;
+        playerData.isIdle = true;
         weaponAnimator.SetBool("isWalking", false);
         weaponAnimator.SetBool("isRunning", false);
         weaponAnimator.SetBool("isCrouchingWalk", false);
+        weaponAnimator.SetBool("isAiming", false);
+    }
+
+    private void OnAim()
+    {
+        if (playerData.isAiming) return;
+
+        playerData.isAiming = true;
+
+        fpCameraAnimator.SetBool("isAiming", true);
+        weaponAnimator.SetBool("isAiming", true);
+    }
+
+    public void DisableAim()
+    {
+        if (!playerData.isAiming) return;
+
+        playerData.isAiming = false;
+        fpCameraAnimator.SetBool("isAiming", false);
+        weaponAnimator.SetBool("isAiming", false);
+
+        UpdateStates("idle");
     }
 
     private void AllToFalse()
     {
-        isIdle = false;
-        isWalking = false;
-        isRunning = false;
-        isCrouching = false;
+        playerData.isIdle = false;
+        playerData.isWalking = false;
+        playerData.isRunning = false;
+        playerData.isCrouchingWalk = false;
     }
 
     internal string GetCurrentState()
     {
-        if (isIdle) return "idle";
-        if (isWalking) return "walk";
-        if (isRunning) return "run";
-        if (isCrouching) return "crouch";
+        if (playerData.isIdle) return "idle";
+        if (playerData.isWalking) return "walk";
+        if (playerData.isRunning) return "run";
+        if (playerData.isCrouching) return "crouch";
 
         return "idle";
     }

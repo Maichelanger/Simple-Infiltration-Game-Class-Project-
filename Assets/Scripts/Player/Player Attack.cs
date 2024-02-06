@@ -12,6 +12,8 @@ public class PlayerAttack : MonoBehaviour
     private PlayerControl playerControl;
     private PlayerSound playerSound;
     private PlayerAnimationsController playerAnims;
+    private Animator cameraAimAnim;
+    private Camera mainCamera;
     private float nextFire = 0f;
     private Boolean canShoot = true;
 
@@ -20,6 +22,8 @@ public class PlayerAttack : MonoBehaviour
         playerControl = new PlayerControl();
         playerSound = GetComponentInChildren<PlayerSound>();
         playerAnims = GetComponentInParent<PlayerAnimationsController>();
+        cameraAimAnim = transform.Find("Viewpoint").transform.Find("FP Camera").GetComponent<Animator>();
+        mainCamera = Camera.main;
     }
 
     private void OnEnable()
@@ -27,11 +31,17 @@ public class PlayerAttack : MonoBehaviour
         playerControl.Enable();
 
         playerControl.InGame.Shoot.performed += Shoot;
+        playerControl.InGame.Aim.started += AimWeapon;
+        playerControl.InGame.Aim.performed += AimWeapon;
+        playerControl.InGame.Aim.canceled += AimWeapon;
     }
 
     private void OnDisable()
     {
         playerControl.InGame.Shoot.performed -= Shoot;
+        playerControl.InGame.Aim.started -= AimWeapon;
+        playerControl.InGame.Aim.performed -= AimWeapon;
+        playerControl.InGame.Aim.canceled -= AimWeapon;
 
         playerControl.Disable();
     }
@@ -61,6 +71,20 @@ public class PlayerAttack : MonoBehaviour
             playerSound.PlayShootingSound();
 
             canShoot = false;
+        }
+    }
+
+    private void AimWeapon(InputAction.CallbackContext context)
+    {
+        bool compatibleState = (playerAnims.GetCurrentState() == "idle" || playerAnims.GetCurrentState() == "walk" || playerAnims.GetCurrentState() == "crouch");
+
+        if(context.started && compatibleState)
+        {
+            playerAnims.UpdateStates("aim");
+        }
+        else
+        {
+            playerAnims.DisableAim();
         }
     }
 }
