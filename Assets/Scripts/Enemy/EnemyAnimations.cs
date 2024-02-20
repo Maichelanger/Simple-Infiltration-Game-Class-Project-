@@ -1,31 +1,19 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyAnimations : MonoBehaviour
 {
     private Animator anim;
+    private NavMeshAgent agent;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
-    public void walk(bool walking)
+    private void Update()
     {
-        anim.SetBool("isWalking", walking);
-    }
-
-    public void run(bool running)
-    {
-        anim.SetBool("isRunning", running);
-    }
-
-    public void attack()
-    {
-        anim.SetTrigger("attack");
-    }
-
-    public void die()
-    {
-        anim.SetTrigger("dead");
+        anim.SetFloat("speed", agent.velocity.magnitude);
     }
 }
