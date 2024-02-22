@@ -20,7 +20,7 @@ public class BulletBehaviour : MonoBehaviour
 
     private void OnCollisionEnter(Collision hitInfo)
     {
-        if(hitInfo.collider.CompareTag("EnemyHitbox"))
+        if(hitInfo.collider.CompareTag("Enemy"))
         {
             EnemyHitboxScript enemyHit = hitInfo.collider.GetComponent<EnemyHitboxScript>();
 

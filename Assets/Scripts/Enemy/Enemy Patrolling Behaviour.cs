@@ -5,6 +5,8 @@ public class EnemyPatrollingBehaviour : MonoBehaviour
 {
     [SerializeField] private Transform[] targets;
 
+    internal bool isPatrolling = true;
+
     private NavMeshAgent agent;
     private int currentTargetIndex;
     private Vector3 currentTarget;
@@ -17,7 +19,14 @@ public class EnemyPatrollingBehaviour : MonoBehaviour
 
     private void Update()
     {
-        CheckDistanceToTarget();
+        if (isPatrolling)
+            CheckDistanceToTarget();
+    }
+
+    public void PatrollingState()
+    {
+        agent.stoppingDistance = 0f;
+        UpdateDestination();
     }
 
     private void CheckDistanceToTarget()
@@ -29,7 +38,7 @@ public class EnemyPatrollingBehaviour : MonoBehaviour
         }
     }
 
-    private void UpdateDestination()
+    internal void UpdateDestination()
     {
         currentTarget = targets[currentTargetIndex].position;
         agent.SetDestination(currentTarget);
