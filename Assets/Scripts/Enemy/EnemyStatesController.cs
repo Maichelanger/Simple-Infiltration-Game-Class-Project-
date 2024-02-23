@@ -1,13 +1,17 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyStatesController : MonoBehaviour
 {
     [SerializeField] private float giveUpTime = 3;
 
+    private NavMeshAgent agent;
     private FieldOfView fov;
     private EnemyPatrollingBehaviour patrollingBehaviour;
     private EnemyPersecuteBehavior persecuteBehaviour;
+    private EnemyRagdoll ragdoll;
+    private EnemyHealthController healthController;
     private bool inGivingUpCooldown = false;
 
     private void Start()
@@ -28,7 +32,17 @@ public class EnemyStatesController : MonoBehaviour
         else if (!inGivingUpCooldown)
         {
             StartCoroutine(CheckPlayerBeforeGivingUp());
+        } else if (healthController.isDead)
+        {
+            patrollingBehaviour.isPatrolling = false;
+            persecuteBehaviour.isPersecuting = false;
         }
+    }
+
+    private void DeadState()
+    {
+        agent.isStopped = true;
+        ragdoll.EnableRagdoll();
     }
 
     IEnumerator CheckPlayerBeforeGivingUp()

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyHitboxScript : MonoBehaviour
 {
+    [SerializeField] private EnemyHealthController healthController;
     [SerializeField] private int damage = 10;
 
     public void Impact()

@@ -211,7 +211,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2261423742935767145}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &43821302
+--- !u!114 &43821312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,11 +220,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 43821293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c1733d00a4c4f940b862ad677b9570f, type: 3}
+  m_Script: {fileID: 11500000, guid: ffc983cb27a7ad846b37c77f51f0c8f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giveUpTime: 3
---- !u!114 &43821303
+--- !u!114 &43821313
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,12 +232,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 43821293}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6446553f743af4782a9685e2926058, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e745293afa307e4a85fce0cec6955fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  persecuteDistance: 5
-  timeToRecalculate: 1
-  persecuteSpeed: 3.5
+  maxHealth: 50
 --- !u!4 &49909377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 416390, guid: c76d2d3504ddb4847940a815cad04644,
@@ -8587,11 +8584,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 357258241833040399, guid: b674a55b3608eb14f80be865c2dd7e4a,
         type: 3}
-      propertyPath: patrollingSpeed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 357258241833040399, guid: b674a55b3608eb14f80be865c2dd7e4a,
-        type: 3}
       propertyPath: targets.Array.data[0]
       value: 
       objectReference: {fileID: 608636050}
@@ -8600,50 +8592,10 @@ PrefabInstance:
       propertyPath: targets.Array.data[1]
       value: 
       objectReference: {fileID: 242006625}
-    - target: {fileID: 1065379474627631120, guid: b674a55b3608eb14f80be865c2dd7e4a,
-        type: 3}
-      propertyPath: viewAngle
-      value: 135
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065379474627631120, guid: b674a55b3608eb14f80be865c2dd7e4a,
-        type: 3}
-      propertyPath: viewRadius
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065379474627631120, guid: b674a55b3608eb14f80be865c2dd7e4a,
-        type: 3}
-      propertyPath: targetMask.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 1065379474627631120, guid: b674a55b3608eb14f80be865c2dd7e4a,
-        type: 3}
-      propertyPath: obstacleMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     - target: {fileID: 2681316020391619297, guid: b674a55b3608eb14f80be865c2dd7e4a,
         type: 3}
       propertyPath: m_Name
       value: Alien Soldier
-      objectReference: {fileID: 0}
-    - target: {fileID: 4354493507571185416, guid: b674a55b3608eb14f80be865c2dd7e4a,
-        type: 3}
-      propertyPath: m_Speed
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4354493507571185416, guid: b674a55b3608eb14f80be865c2dd7e4a,
-        type: 3}
-      propertyPath: m_Acceleration
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 4354493507571185416, guid: b674a55b3608eb14f80be865c2dd7e4a,
-        type: 3}
-      propertyPath: m_StoppingDistance
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4354493507571185416, guid: b674a55b3608eb14f80be865c2dd7e4a,
-        type: 3}
-      propertyPath: m_ObstacleAvoidanceType
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5794493006682777476, guid: b674a55b3608eb14f80be865c2dd7e4a,
         type: 3}
@@ -8653,7 +8605,7 @@ PrefabInstance:
     - target: {fileID: 5794493006682777476, guid: b674a55b3608eb14f80be865c2dd7e4a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.010002136
+      value: 0.227
       objectReference: {fileID: 0}
     - target: {fileID: 5794493006682777476, guid: b674a55b3608eb14f80be865c2dd7e4a,
         type: 3}
@@ -8702,11 +8654,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2681316020391619297, guid: b674a55b3608eb14f80be865c2dd7e4a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 43821302}
+      addedObject: {fileID: 43821312}
     - targetCorrespondingSourceObject: {fileID: 2681316020391619297, guid: b674a55b3608eb14f80be865c2dd7e4a,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 43821303}
+      addedObject: {fileID: 43821313}
   m_SourcePrefab: {fileID: 100100000, guid: b674a55b3608eb14f80be865c2dd7e4a, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
