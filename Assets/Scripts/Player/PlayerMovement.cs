@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,8 +7,9 @@ public class PlayerMovement : MonoBehaviour
     private PlayerAnimationsController animationScript;
     private Vector3 moveDirection;
     private Vector2 movementInput;
-    private float verticalVelocity = 0.0f;
+    //private float verticalVelocity = 0.0f;
     private float currentSpeed = 5.0f;
+    //private float gravity = 9.8f;
     private PlayerControl playerControl;
     private PlayerData playerData;
 
@@ -50,9 +50,25 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= currentSpeed * Time.deltaTime;
 
+        //ApplyGravity();
+
         charController.Move(moveDirection);
     }
+    /*
+    private void ApplyGravity()
+    {
+        if (!charController.isGrounded)
+        {
+            verticalVelocity -= gravity * Time.deltaTime;
+        }
+        else
+        {
+            verticalVelocity = 0.0f;
+        }
 
+        moveDirection.y = verticalVelocity;
+    }
+    */
     private void OnMovement(InputAction.CallbackContext context)
     {
         movementInput = context.ReadValue<Vector2>();

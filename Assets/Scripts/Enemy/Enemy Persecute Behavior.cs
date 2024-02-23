@@ -5,6 +5,7 @@ public class EnemyPersecuteBehavior : MonoBehaviour
 {
     [SerializeField] private float persecuteDistance = 5;
     [SerializeField] private float timeToRecalculate = 1;
+    [SerializeField] private float persecuteSpeed = 5;
 
     internal bool isPersecuting = false;
 
@@ -27,6 +28,7 @@ public class EnemyPersecuteBehavior : MonoBehaviour
     public void PersecuteState()
     {
         agent.stoppingDistance = persecuteDistance;
+        agent.speed = persecuteSpeed;
         agent.SetDestination(player.position);
     }
 

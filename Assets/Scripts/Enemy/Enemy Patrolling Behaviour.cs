@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class EnemyPatrollingBehaviour : MonoBehaviour
 {
     [SerializeField] private Transform[] targets;
+    [SerializeField] private float patrollingSpeed = 1.5f;
 
     internal bool isPatrolling = true;
 
@@ -26,6 +27,7 @@ public class EnemyPatrollingBehaviour : MonoBehaviour
     public void PatrollingState()
     {
         agent.stoppingDistance = 0f;
+        agent.speed = patrollingSpeed;
         UpdateDestination();
     }
 

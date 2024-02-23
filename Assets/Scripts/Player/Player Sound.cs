@@ -19,9 +19,11 @@ public class PlayerSound : MonoBehaviour
 
     private void Update()
     {
-        CheckFootSteps();
+        //CheckFootSteps();
     }
 
+    //Obsolete: Footsteps are now handled through the animation events
+    /*
     private void CheckFootSteps()
     {
         if(!charController.isGrounded) return;
@@ -40,8 +42,9 @@ public class PlayerSound : MonoBehaviour
             timeSinceLastSetp = 0;
         }
     }
+    */
 
-    private void PlayFootStepSound()
+    public void PlayFootStepSound()
     {
         audioSource.volume = Random.Range(minVol,maxVol);
         AudioClip clip = footstepSounds[Random.Range(0,footstepSounds.Length)];
