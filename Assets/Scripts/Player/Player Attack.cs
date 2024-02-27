@@ -81,28 +81,44 @@ public class PlayerAttack : MonoBehaviour
             canShoot = false;
             */
 
-            weaponAnimator.SetTrigger("shoot");
-            muzzleFlash.Emit(1);
-
-            shootingRay.origin = firePoint.position;
-            shootingRay.direction = raycastTarget.position - firePoint.position;
-
-            var tracer = Instantiate(bulletTrailEffect, firePoint.position, Quaternion.identity);
-            tracer.AddPosition(firePoint.position);
-            if (Physics.Raycast(shootingRay, out raycastHitInfo))
-            {
-                hitEffect.transform.position = raycastHitInfo.point;
-                hitEffect.transform.forward = raycastHitInfo.normal;
-                hitEffect.Emit(1);
-
-                tracer.transform.position = raycastHitInfo.point;
-            }
-
+            GenerateBullet();
 
             playerSound.PlayShootingSound();
 
             canShoot = false;
 
+        }
+    }
+
+    private void GenerateBullet()
+    {
+        weaponAnimator.SetTrigger("shoot");
+        muzzleFlash.Emit(1);
+
+        shootingRay.origin = firePoint.position;
+        shootingRay.direction = raycastTarget.position - firePoint.position;
+
+        var tracer = Instantiate(bulletTrailEffect, firePoint.position, Quaternion.identity);
+        tracer.AddPosition(firePoint.position);
+        if (Physics.Raycast(shootingRay, out raycastHitInfo))
+        {
+            hitEffect.transform.position = raycastHitInfo.point;
+            hitEffect.transform.forward = raycastHitInfo.normal;
+            hitEffect.Emit(1);
+
+            tracer.transform.position = raycastHitInfo.point;
+
+            var collidedRb = raycastHitInfo.collider.GetComponent<Rigidbody>();
+            if (collidedRb != null)
+            {
+                collidedRb.AddForceAtPosition(shootingRay.direction * 20f, raycastHitInfo.point, ForceMode.Impulse);
+            }
+
+            var enemyHitbox = raycastHitInfo.collider.GetComponent<EnemyHitboxScript>();
+            if (enemyHitbox != null)
+            {
+                enemyHitbox.Impact(shootingRay.direction);
+            }
         }
     }
 
