@@ -16,14 +16,22 @@ public class EnemyStatesController : MonoBehaviour
 
     private void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
         fov = GetComponent<FieldOfView>();
         patrollingBehaviour = GetComponent<EnemyPatrollingBehaviour>();
         persecuteBehaviour = GetComponent<EnemyPersecuteBehavior>();
+        ragdoll = GetComponent<EnemyRagdoll>();
+        healthController = GetComponent<EnemyHealthController>();
     }
 
     private void Update()
     {
-        if (fov.playerInSight)
+        if (healthController.isDead)
+        {
+            patrollingBehaviour.isPatrolling = false;
+            persecuteBehaviour.isPersecuting = false;
+            DeadState();
+        }else if (fov.playerInSight)
         {
             patrollingBehaviour.isPatrolling = false;
             persecuteBehaviour.isPersecuting = true;
@@ -32,10 +40,6 @@ public class EnemyStatesController : MonoBehaviour
         else if (!inGivingUpCooldown)
         {
             StartCoroutine(CheckPlayerBeforeGivingUp());
-        } else if (healthController.isDead)
-        {
-            patrollingBehaviour.isPatrolling = false;
-            persecuteBehaviour.isPersecuting = false;
         }
     }
 

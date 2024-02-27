@@ -11,9 +11,16 @@ public class EnemyHealthController : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+
+        var rigidBodies = GetComponentsInChildren<Rigidbody>();
+        foreach (var rigidBody in rigidBodies)
+        {
+            EnemyHitboxScript hitbox = rigidBody.gameObject.AddComponent<EnemyHitboxScript>();
+            hitbox.healthController = this;
+        }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector3 impactDirection)
     {
         currentHealth -= damage;
 

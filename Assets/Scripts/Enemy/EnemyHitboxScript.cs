@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class EnemyHitboxScript : MonoBehaviour
 {
-    [SerializeField] private EnemyHealthController healthController;
     [SerializeField] private int damage = 10;
+    internal EnemyHealthController healthController;
 
-    public void Impact()
+    public void Impact(Vector3 impactDirection)
     {
-        Debug.Log("Enemy Hit");
+        healthController.TakeDamage(damage, impactDirection);
     }
 }

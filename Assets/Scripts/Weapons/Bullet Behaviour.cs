@@ -22,11 +22,9 @@ public class BulletBehaviour : MonoBehaviour
     {
         if(hitInfo.collider.CompareTag("Enemy"))
         {
-            EnemyHitboxScript enemyHit = hitInfo.collider.GetComponent<EnemyHitboxScript>();
-
-            if(enemyHit != null)
+            if(hitInfo.collider.TryGetComponent<EnemyHitboxScript>(out var enemyHit))
             {
-                enemyHit.Impact();
+                enemyHit.Impact(rb.velocity);
             }
         }
 

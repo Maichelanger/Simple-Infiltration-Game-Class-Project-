@@ -9,6 +9,8 @@ public class PlayerAttack : MonoBehaviour
     public Transform firePoint;
     public float fireRate = 15f;
 
+    [SerializeField] private ParticleSystem muzzleFlash;
+
     private PlayerControl playerControl;
     private PlayerSound playerSound;
     private PlayerAnimationsController playerAnims;
@@ -16,6 +18,8 @@ public class PlayerAttack : MonoBehaviour
     private Camera mainCamera;
     private float nextFire = 0f;
     private Boolean canShoot = true;
+    private Ray shootingRay;
+    private RaycastHit raycastHitInfo;
 
     private void Awake()
     {
@@ -64,6 +68,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (canShoot && (playerAnims.GetCurrentState() != "run"))
         {
+            /*
             weaponAnimator.SetTrigger("shoot");
             Quaternion firePointCorrectedRotation = Quaternion.Euler(firePoint.rotation.x, firePoint.rotation.y + 90f, firePoint.rotation.z);
             Instantiate(bulletPrefab, firePoint.position, firePointCorrectedRotation);
@@ -71,6 +76,23 @@ public class PlayerAttack : MonoBehaviour
             playerSound.PlayShootingSound();
 
             canShoot = false;
+            */
+
+            weaponAnimator.SetTrigger("shoot");
+            muzzleFlash.Emit(1);
+
+            shootingRay.origin = firePoint.position;
+            shootingRay.direction = firePoint.forward;
+            if (Physics.Raycast(shootingRay, out raycastHitInfo))
+            {
+                Debug.DrawLine(shootingRay.origin, raycastHitInfo.point, Color.red, 1f);
+            }
+
+
+            playerSound.PlayShootingSound();
+
+            canShoot = false;
+
         }
     }
 
