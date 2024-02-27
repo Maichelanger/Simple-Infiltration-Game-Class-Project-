@@ -26,12 +26,19 @@ public class EnemyStatesController : MonoBehaviour
 
     private void Update()
     {
-        if (healthController.isDead)
+        if (healthController.isDead && agent.enabled)
         {
             patrollingBehaviour.isPatrolling = false;
             persecuteBehaviour.isPersecuting = false;
             DeadState();
-        }else if (fov.playerInSight)
+            return;
+        }
+        else if (!agent.enabled)
+        {
+            return;
+        }
+        
+        if (fov.playerInSight)
         {
             patrollingBehaviour.isPatrolling = false;
             persecuteBehaviour.isPersecuting = true;
@@ -45,8 +52,10 @@ public class EnemyStatesController : MonoBehaviour
 
     private void DeadState()
     {
-        agent.isStopped = true;
+        agent.enabled = false;
         ragdoll.EnableRagdoll();
+
+        Destroy(gameObject, 5);
     }
 
     IEnumerator CheckPlayerBeforeGivingUp()

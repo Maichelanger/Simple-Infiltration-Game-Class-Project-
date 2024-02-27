@@ -8536,6 +8536,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien Soldier
       objectReference: {fileID: 0}
+    - target: {fileID: 4354493507571185416, guid: b674a55b3608eb14f80be865c2dd7e4a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5794493006682777476, guid: b674a55b3608eb14f80be865c2dd7e4a,
         type: 3}
       propertyPath: m_LocalPosition.x
