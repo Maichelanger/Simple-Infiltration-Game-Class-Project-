@@ -10,6 +10,9 @@ public class PlayerAttack : MonoBehaviour
     public float fireRate = 15f;
 
     [SerializeField] private ParticleSystem muzzleFlash;
+    [SerializeField] private ParticleSystem hitEffect;
+    [SerializeField] private Transform raycastTarget;
+    [SerializeField] private TrailRenderer bulletTrailEffect;
 
     private PlayerControl playerControl;
     private PlayerSound playerSound;
@@ -82,10 +85,17 @@ public class PlayerAttack : MonoBehaviour
             muzzleFlash.Emit(1);
 
             shootingRay.origin = firePoint.position;
-            shootingRay.direction = firePoint.forward;
+            shootingRay.direction = raycastTarget.position - firePoint.position;
+
+            var tracer = Instantiate(bulletTrailEffect, firePoint.position, Quaternion.identity);
+            tracer.AddPosition(firePoint.position);
             if (Physics.Raycast(shootingRay, out raycastHitInfo))
             {
-                Debug.DrawLine(shootingRay.origin, raycastHitInfo.point, Color.red, 1f);
+                hitEffect.transform.position = raycastHitInfo.point;
+                hitEffect.transform.forward = raycastHitInfo.normal;
+                hitEffect.Emit(1);
+
+                tracer.transform.position = raycastHitInfo.point;
             }
 
 
