@@ -5,13 +5,13 @@ public class FieldOfView : MonoBehaviour
 {
     public float viewRadius; [Range(0, 360)]
     public float viewAngle;
-    public bool playerInSight;
+    public bool playerInSight = false;
 
     [HideInInspector] public GameObject playerRef;
 
     [SerializeField] private LayerMask targetMask;
     [SerializeField] private LayerMask obstacleMask;
-    
+
     private void Start()
     {
         playerRef = GameObject.FindGameObjectWithTag("Player");
@@ -61,6 +61,4 @@ public class FieldOfView : MonoBehaviour
             FieldOfViewCheck();
         }
     }
-
-
 }
