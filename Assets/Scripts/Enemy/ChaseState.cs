@@ -14,10 +14,13 @@ public class ChaseState : State
         agent.navAgent.stoppingDistance = agent.config.persecuteDistance;
         agent.navAgent.speed = agent.config.chaseSpeed;
         agent.navAgent.SetDestination(player.position);
+
+        agent.weaponIk.SetTargetTransform(GameObject.FindGameObjectWithTag("Target").transform);
     }
 
     public void Exit(AiAgent agent)
     {
+        agent.weaponIk.SetTargetTransform(null);
     }
 
     public StateId GetId()

@@ -2769,6 +2769,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 740545202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &628975470 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 805702084676358361, guid: 22c435e286ae6c94da99e0047da41ad2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2100766474947542889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &662887266 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 416390, guid: c76d2d3504ddb4847940a815cad04644,
@@ -8366,6 +8372,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 805702084676358361, guid: 22c435e286ae6c94da99e0047da41ad2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 805702084676358361, guid: 22c435e286ae6c94da99e0047da41ad2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 2664550507137906064, guid: 22c435e286ae6c94da99e0047da41ad2,
         type: 3}
       propertyPath: playOnAwake
@@ -8436,6 +8452,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4545778535609877585, guid: 22c435e286ae6c94da99e0047da41ad2,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 7135052003604711290, guid: 22c435e286ae6c94da99e0047da41ad2,
         type: 3}
       propertyPath: m_Name
@@ -8463,6 +8484,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5731567482672855036, guid: fe739b9b3ca71d84db949e4a83d79b9a,
         type: 3}
+    - target: {fileID: 8023118057100658828, guid: 22c435e286ae6c94da99e0047da41ad2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Target
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -8490,11 +8516,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1792376479029149993, guid: b674a55b3608eb14f80be865c2dd7e4a,
+    - target: {fileID: 1710587261515543739, guid: b674a55b3608eb14f80be865c2dd7e4a,
         type: 3}
-      propertyPath: patrollingTargets.Array.size
-      value: 2
+      propertyPath: distanceLimit
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1710587261515543739, guid: b674a55b3608eb14f80be865c2dd7e4a,
+        type: 3}
+      propertyPath: targetTransform
+      value: 
+      objectReference: {fileID: 628975470}
     - target: {fileID: 1792376479029149993, guid: b674a55b3608eb14f80be865c2dd7e4a,
         type: 3}
       propertyPath: patrollingTargets.Array.data[0]

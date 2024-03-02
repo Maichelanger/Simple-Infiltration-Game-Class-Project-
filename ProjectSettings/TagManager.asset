@@ -8,6 +8,7 @@ TagManager:
   - FP Camera
   - Viewpoint
   - Bullet
+  - Target
   layers:
   - Default
   - TransparentFX

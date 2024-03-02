@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AiDefaultConfig
   m_EditorClassIdentifier: 
   persecuteDistance: 5
-  timeToRecalculate: 1
+  timeToRecalculate: 0.5
   giveUpTime: 5
   chaseSpeed: 3.5
   patrollingSpeed: 1.5

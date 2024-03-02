@@ -10,6 +10,10 @@ public class DeadState : State
         agent.ragdoll.EnableRagdoll();
         agent.ragdoll.ApplyForce(impactDirection * agent.config.deathImpulse);
 
+        agent.weapon.GetComponent<Collider>().enabled = true;
+        agent.weapon.GetComponent<Rigidbody>().isKinematic = false;
+        agent.weapon.transform.SetParent(null);
+
         agent.DestroyObject();
     }
 

@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     private Animator cameraAimAnim;
     private Camera mainCamera;
     private float nextFire = 0f;
-    private Boolean canShoot = true;
+    private bool canShoot = true;
     private Ray shootingRay;
     private RaycastHit raycastHitInfo;
 

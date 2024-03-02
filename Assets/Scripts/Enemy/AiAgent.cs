@@ -5,6 +5,7 @@ using UnityEngine.AI;
 public class AiAgent : MonoBehaviour
 {
     public AiAgentConfig config;
+    public GameObject weapon;
     public Transform[] patrollingTargets;
 
     [SerializeField] private StateId initialState;
@@ -13,6 +14,7 @@ public class AiAgent : MonoBehaviour
     internal EnemyRagdoll ragdoll;
     internal StateMachine stateMachine;
     internal FieldOfView fieldOfView;
+    internal WeaponIk weaponIk;
 
     private bool inGivingUpCooldown = false;
 
@@ -21,6 +23,7 @@ public class AiAgent : MonoBehaviour
         navAgent = GetComponent<NavMeshAgent>();
         ragdoll = GetComponent<EnemyRagdoll>();
         fieldOfView = GetComponent<FieldOfView>();
+        weaponIk = GetComponent<WeaponIk>();
         stateMachine = new StateMachine(this);
         RegisterStates();
         stateMachine.ChangeState(initialState);
@@ -49,6 +52,7 @@ public class AiAgent : MonoBehaviour
 
     internal void DestroyObject()
     {
+        Destroy(weapon, 5);
         Destroy(gameObject, 5);
     }
 
