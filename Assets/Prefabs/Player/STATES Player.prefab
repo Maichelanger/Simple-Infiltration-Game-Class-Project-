@@ -5490,13 +5490,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2779446794877354222}
   - component: {fileID: 422538143439800421}
-  - component: {fileID: 2354995562092499371}
-  - component: {fileID: 489487058260762636}
-  - component: {fileID: 4481046669515353263}
-  - component: {fileID: 7259480440806092471}
-  - component: {fileID: 8521234600854231642}
+  - component: {fileID: 9150749098942410057}
+  - component: {fileID: 1365745130487760424}
   m_Layer: 8
-  m_Name: Player
+  m_Name: STATES Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5546,7 +5543,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &2354995562092499371
+--- !u!114 &9150749098942410057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5555,39 +5552,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7135052003604711290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8537e13de4c2fe47b7f76c1a80cf9e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &489487058260762636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7135052003604711290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01dabe9976f34ff498d205fe0e87cdf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeed: 5
-  sprintSpeed: 10
-  crouchSpeed: 2
---- !u!114 &4481046669515353263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7135052003604711290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bb8d7e18eff9cb44bb3cd06e63e80d1, type: 3}
+  m_Script: {fileID: 11500000, guid: 527eda7e90ae98f4ba43d466c986772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   weaponAnimator: {fileID: 8066323043648532003}
   fpCameraAnimator: {fileID: 5077426038367149122}
---- !u!114 &7259480440806092471
+  initialState: 0
+--- !u!114 &1365745130487760424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5602,24 +5573,6 @@ MonoBehaviour:
   weaponAnimator: {fileID: 8066323043648532003}
   raycastWeapon: {fileID: 2606412866001305536}
   playerSight: {fileID: 3744899591917494653}
---- !u!114 &8521234600854231642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7135052003604711290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ded18a135f78aed4aa7785475b1ef602, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isIdle: 0
-  isWalking: 0
-  isRunning: 0
-  isCrouching: 0
-  isCrouchingWalk: 0
-  isAiming: 0
 --- !u!1 &8023118057100658828
 GameObject:
   m_ObjectHideFlags: 0

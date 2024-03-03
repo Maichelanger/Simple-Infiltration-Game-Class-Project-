@@ -76,6 +76,12 @@ public class RaycastWeapon : MonoBehaviour
             {
                 enemyHitbox.Impact(shootingRay.direction);
             }
+
+            var playerHitbox = raycastHitInfo.collider.GetComponent<PlayerHitBox>();
+            if (playerHitbox != null)
+            {
+                playerHitbox.Impact();
+            }
         }
     }
 }
