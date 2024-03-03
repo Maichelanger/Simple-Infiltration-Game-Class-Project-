@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class PlayerSound : MonoBehaviour
 {
+    public float minVol, maxVol;
+
     [SerializeField] private AudioClip[] footstepSounds;
     [SerializeField] private AudioClip shootingSound;
-    [HideInInspector] public float minVol,maxVol;
     [HideInInspector] public float stepDistance;
 
     private AudioSource audioSource;

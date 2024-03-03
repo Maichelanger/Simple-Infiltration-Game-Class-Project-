@@ -51,5 +51,22 @@ public class ChaseState : State
 
             timer = agent.config.timeToRecalculate;
         }
+
+        ShootPlayer(agent);
+    }
+
+    private void ShootPlayer(AiAgent agent)
+    {
+        if(agent.fieldOfView.playerInSight)
+        {
+            Vector3 targetVector = GameObject.FindGameObjectWithTag("Target").transform.position + (Random.insideUnitSphere * agent.aimingInnacuracy);
+            Transform target = new GameObject().transform;
+            target.position = targetVector;
+            
+            if (agent.weapon.GetComponent<RaycastWeapon>().canShoot)
+                agent.sounds.PlayShootingSound();
+
+            agent.weapon.GetComponent<RaycastWeapon>().Shoot(target);
+        }
     }
 }

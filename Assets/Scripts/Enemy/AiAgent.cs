@@ -5,8 +5,10 @@ using UnityEngine.AI;
 public class AiAgent : MonoBehaviour
 {
     public AiAgentConfig config;
+    public PlayerSound sounds;
     public GameObject weapon;
     public Transform[] patrollingTargets;
+    public float aimingInnacuracy = 0;
 
     [SerializeField] private StateId initialState;
 
