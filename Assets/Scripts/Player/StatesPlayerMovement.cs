@@ -59,9 +59,9 @@ public class StatesPlayerMovement : MonoBehaviour
     private void SendSpeedToAnimator()
     {
         if (agent.stateMachine.currentStateId == PlayerStateId.Idle || agent.stateMachine.currentStateId == PlayerStateId.Aiming)
-            agent.weaponAnimator.SetFloat("Speed", 0);
+            agent.weaponAnimator.SetFloat("Speed", Mathf.MoveTowards(agent.weaponAnimator.GetFloat("Speed"), 0, Time.deltaTime * 20));
         else
-            agent.weaponAnimator.SetFloat("Speed", currentSpeed);
+            agent.weaponAnimator.SetFloat("Speed", Mathf.MoveTowards(agent.weaponAnimator.GetFloat("Speed"), currentSpeed, Time.deltaTime * 20));
     }
 
     private void MovementCalculation()

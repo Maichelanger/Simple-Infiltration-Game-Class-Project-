@@ -5,8 +5,8 @@
         agent.playerSound.minVol = agent.playerConfig.sprintSoundVolume;
         agent.playerSound.maxVol = agent.playerConfig.sprintSoundVolume;
 
-        if (agent.isAiming)
-            agent.fpCameraAnimator.SetBool("isAiming", false);
+        agent.fpCameraAnimator.SetBool("isAiming", false);
+        agent.isAiming = false;
 
         /*
         agent.weaponAnimator.SetBool("isWalking", false);
@@ -18,7 +18,8 @@
 
     public void Exit(PlayerAgent agent)
     {
-        
+        agent.fpCameraAnimator.SetBool("isAiming", false);
+        agent.isAiming = false;
     }
 
     public PlayerStateId GetStateId()
