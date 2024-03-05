@@ -5,8 +5,6 @@ public enum PlayerStateId
     Idle,
     Walking,
     Running,
-    Crouching,
-    CrouchingWalk,
     Aiming,
     WalkingAiming,
 }

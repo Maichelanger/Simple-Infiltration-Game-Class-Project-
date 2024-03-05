@@ -29,9 +29,9 @@ public class PlayerStateMachine
         return states[index];
     }
 
-    public void ChangeState(PlayerStateId newStateId)
+    public void ChangeState(PlayerStateId newStateId, bool isExceptional)
     {
-        if (newStateId == currentStateId)
+        if (newStateId == currentStateId && !isExceptional)
         {
             return;
         }

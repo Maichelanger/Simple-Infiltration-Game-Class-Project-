@@ -8,10 +8,12 @@
         if (agent.isAiming)
             agent.fpCameraAnimator.SetBool("isAiming", false);
 
+        /*
         agent.weaponAnimator.SetBool("isWalking", false);
         agent.weaponAnimator.SetBool("isRunning", true);
         agent.weaponAnimator.SetBool("isCrouchingWalk", false);
         agent.weaponAnimator.SetBool("isAiming", false);
+        */
     }
 
     public void Exit(PlayerAgent agent)

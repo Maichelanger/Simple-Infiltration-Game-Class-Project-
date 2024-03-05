@@ -4,14 +4,16 @@
     {
         if (agent.isAiming)
         {
-            agent.stateMachine.ChangeState(PlayerStateId.Aiming);
+            agent.stateMachine.ChangeState(PlayerStateId.Aiming, isExceptional: false);
             return;
         }
 
+        /*
         agent.weaponAnimator.SetBool("isWalking", false);
         agent.weaponAnimator.SetBool("isRunning", false);
         agent.weaponAnimator.SetBool("isCrouchingWalk", false);
         agent.weaponAnimator.SetBool("isAiming", false);
+        */
     }
 
     public void Exit(PlayerAgent agent)

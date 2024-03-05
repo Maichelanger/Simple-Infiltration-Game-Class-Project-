@@ -5,24 +5,27 @@ public class PlayerAgent : MonoBehaviour
     public PlayerConfig playerConfig;
     public Animator weaponAnimator;
     public Animator fpCameraAnimator;
+    public RaycastWeapon raycastWeapon;
+    public Transform playerSight;
 
     [SerializeField] private PlayerStateId initialState;
 
     internal bool isAiming = false;
+    internal bool isCrouching = false;
     internal PlayerStateMachine stateMachine;
     internal StatesPlayerMovement playerMovement;
     internal PlayerSound playerSound;
+    internal Transform cameraRoot;
 
     private void Start()
     {
-        weaponAnimator = GetComponent<Animator>();
-        fpCameraAnimator = GetComponent<Animator>();
         playerMovement = GetComponent<StatesPlayerMovement>();
         playerSound = GetComponentInChildren<PlayerSound>();
+        cameraRoot = transform.GetChild(0);
 
         stateMachine = new PlayerStateMachine(this);
         RegisterStates();
-        stateMachine.ChangeState(initialState);
+        stateMachine.ChangeState(initialState, isExceptional: true);
     }
 
     private void Update()
@@ -35,9 +38,6 @@ public class PlayerAgent : MonoBehaviour
         stateMachine.RegisterState(new IdleState());
         stateMachine.RegisterState(new WalkingState());
         stateMachine.RegisterState(new RunningState());
-        stateMachine.RegisterState(new CrouchingState());
-        stateMachine.RegisterState(new CrouchingWalkState());
         stateMachine.RegisterState(new AimingState());
-        stateMachine.RegisterState(new WalkingAimingState());
     }
 }

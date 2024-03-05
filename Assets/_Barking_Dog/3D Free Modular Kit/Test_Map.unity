@@ -125,6 +125,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2516639 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7135052003604711290, guid: be3ce518b40950148b5f95d4da93a770,
+    type: 3}
+  m_PrefabInstance: {fileID: 8206470463455695037}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2516643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2516639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49312826c878742478728e2cb6a28e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6648772
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3003,6 +3021,12 @@ Transform:
   - {fileID: 242006625}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &750584656 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3744899591917494653, guid: be3ce518b40950148b5f95d4da93a770,
+    type: 3}
+  m_PrefabInstance: {fileID: 8206470463455695037}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &763165406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8227,6 +8251,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2043898961}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2045255885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2606412866001305536, guid: be3ce518b40950148b5f95d4da93a770,
+    type: 3}
+  m_PrefabInstance: {fileID: 8206470463455695037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 640dba8b3a1aae94b8a752795553d9eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2046311845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8605,6 +8641,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Alien Soldier
       objectReference: {fileID: 0}
+    - target: {fileID: 2681316020391619297, guid: b674a55b3608eb14f80be865c2dd7e4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4074970489931085324, guid: b674a55b3608eb14f80be865c2dd7e4a,
         type: 3}
       propertyPath: m_Layer
@@ -8755,10 +8796,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: STATES Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9150749098942410057, guid: be3ce518b40950148b5f95d4da93a770,
+        type: 3}
+      propertyPath: playerSight
+      value: 
+      objectReference: {fileID: 750584656}
+    - target: {fileID: 9150749098942410057, guid: be3ce518b40950148b5f95d4da93a770,
+        type: 3}
+      propertyPath: playerConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: bd4bec225250ab24180ae816ecd82e30,
+        type: 2}
+    - target: {fileID: 9150749098942410057, guid: be3ce518b40950148b5f95d4da93a770,
+        type: 3}
+      propertyPath: raycastWeapon
+      value: 
+      objectReference: {fileID: 2045255885}
+    m_RemovedComponents:
+    - {fileID: 1365745130487760424, guid: be3ce518b40950148b5f95d4da93a770, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7135052003604711290, guid: be3ce518b40950148b5f95d4da93a770,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2516643}
   m_SourcePrefab: {fileID: 100100000, guid: be3ce518b40950148b5f95d4da93a770, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
