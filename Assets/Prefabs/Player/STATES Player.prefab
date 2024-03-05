@@ -5491,7 +5491,8 @@ GameObject:
   - component: {fileID: 2779446794877354222}
   - component: {fileID: 422538143439800421}
   - component: {fileID: 9150749098942410057}
-  - component: {fileID: 1365745130487760424}
+  - component: {fileID: 7356519412735291290}
+  - component: {fileID: 2149200124540403342}
   m_Layer: 8
   m_Name: STATES Player
   m_TagString: Player
@@ -5555,10 +5556,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 527eda7e90ae98f4ba43d466c986772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerConfig: {fileID: 11400000, guid: bd4bec225250ab24180ae816ecd82e30, type: 2}
   weaponAnimator: {fileID: 8066323043648532003}
   fpCameraAnimator: {fileID: 5077426038367149122}
+  raycastWeapon: {fileID: 2606412866001305536}
+  playerSight: {fileID: 3744899591917494653}
   initialState: 0
---- !u!114 &1365745130487760424
+--- !u!114 &7356519412735291290
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5567,12 +5571,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 7135052003604711290}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 290e00350c20c56438e9f209f709bc57, type: 3}
+  m_Script: {fileID: 11500000, guid: 49312826c878742478728e2cb6a28e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponAnimator: {fileID: 8066323043648532003}
-  raycastWeapon: {fileID: 2606412866001305536}
-  playerSight: {fileID: 3744899591917494653}
+--- !u!114 &2149200124540403342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7135052003604711290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb51dfd5c3721ea4da582c526f0051ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &8023118057100658828
 GameObject:
   m_ObjectHideFlags: 0

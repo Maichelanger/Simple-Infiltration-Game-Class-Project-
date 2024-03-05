@@ -7,6 +7,7 @@ public enum PlayerStateId
     Running,
     Aiming,
     WalkingAiming,
+    LostGame
 }
 
 public interface PlayerState

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealthController : MonoBehaviour
@@ -9,20 +7,11 @@ public class PlayerHealthController : MonoBehaviour
     internal bool isDead = false;
 
     private int currentHealth;
-    //private PlayerController playerController;
+    private PlayerAgent agent;
 
     private void Start()
     {
-        //playerController = GetComponent<PlayerController>();
-
         currentHealth = maxHealth;
-
-        var rigidBodies = GetComponentsInChildren<Rigidbody>();
-        foreach (var rigidBody in rigidBodies)
-        {
-            PlayerHitBox hitbox = rigidBody.gameObject.AddComponent<PlayerHitBox>();
-            hitbox.healthController = this;
-        }
     }
 
     public void TakeDamage(int damage)
@@ -34,12 +23,7 @@ public class PlayerHealthController : MonoBehaviour
         if (currentHealth <= 0)
         {
             isDead = true;
-            Die();
+            agent.stateMachine.ChangeState(PlayerStateId.LostGame, isExceptional: false);
         }
-    }
-
-    private void Die()
-    {
-        //playerController.Die(impactDirection);
     }
 }

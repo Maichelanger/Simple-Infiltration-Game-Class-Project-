@@ -58,6 +58,11 @@ public class AiAgent : MonoBehaviour
         Destroy(gameObject, 5);
     }
 
+    internal void DestroyObject(GameObject obj)
+    {
+        Destroy(obj);
+    }
+
     internal Vector3 GetCurrentPosition()
     {
         return transform.position;

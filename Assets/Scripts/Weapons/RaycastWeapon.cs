@@ -65,19 +65,21 @@ public class RaycastWeapon : MonoBehaviour
 
             tracer.transform.position = raycastHitInfo.point;
 
-            var collidedRb = raycastHitInfo.collider.GetComponent<Rigidbody>();
-            if (collidedRb != null)
+            var collider = raycastHitInfo.collider;
+
+            var Rb = collider.GetComponent<Rigidbody>();
+            if (Rb != null)
             {
-                collidedRb.AddForceAtPosition(shootingRay.direction * 20f, raycastHitInfo.point, ForceMode.Impulse);
+                Rb.AddForceAtPosition(shootingRay.direction * 20f, raycastHitInfo.point, ForceMode.Impulse);
             }
 
-            var enemyHitbox = raycastHitInfo.collider.GetComponent<EnemyHitboxScript>();
+            var enemyHitbox = collider.GetComponent<EnemyHitboxScript>();
             if (enemyHitbox != null)
             {
                 enemyHitbox.Impact(shootingRay.direction);
             }
 
-            var playerHitbox = raycastHitInfo.collider.GetComponent<PlayerHitBox>();
+            var playerHitbox = collider.GetComponent<PlayerHitBox>();
             if (playerHitbox != null)
             {
                 playerHitbox.Impact();

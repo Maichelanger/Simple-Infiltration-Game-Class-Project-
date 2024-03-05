@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -60,8 +61,12 @@ public class ChaseState : State
         if(agent.fieldOfView.playerInSight)
         {
             Vector3 targetVector = GameObject.FindGameObjectWithTag("Target").transform.position + (Random.insideUnitSphere * agent.aimingInnacuracy);
-            Transform target = new GameObject().transform;
+            //How can I destroy the GameObject after 1 second?
+            GameObject temp = new GameObject();
+            Transform target = temp.transform;
             target.position = targetVector;
+            agent.DestroyObject(temp);
+
             
             if (agent.weapon.GetComponent<RaycastWeapon>().canShoot)
                 agent.sounds.PlayShootingSound();
