@@ -7,7 +7,7 @@ public class PlayerHealthController : MonoBehaviour
 
     internal bool isDead = false;
 
-    private int currentHealth;
+    private float currentHealth;
     private PlayerAgent agent;
 
     private void Start()
@@ -35,7 +35,7 @@ public class PlayerHealthController : MonoBehaviour
         }
     }
 
-    public void Heal(int healAmount)
+    public void Heal(float healAmount)
     {
         if (isDead) return;
 

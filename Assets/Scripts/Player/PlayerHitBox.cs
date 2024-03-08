@@ -12,4 +12,10 @@ public class PlayerHitBox : MonoBehaviour
         Debug.Log("Player hit");
         healthController.TakeDamage(damage);
     }
+
+    public void Heal(float amount)
+    {
+        Debug.Log("Player healed");
+        healthController.Heal(amount);
+    }
 }
