@@ -48,6 +48,11 @@ public class PlayerAgent : MonoBehaviour
         stateMachine.RegisterState(new LostGameState());
     }
 
+    internal void DisableAudioListener()
+    {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<AudioListener>().enabled = false;
+    }
+
     public IEnumerator RestartGame()
     {
         yield return new WaitForSeconds(3);

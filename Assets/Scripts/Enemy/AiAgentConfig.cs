@@ -9,4 +9,5 @@ public class AiAgentConfig : ScriptableObject
     public float chaseSpeed = 5;
     public float patrollingSpeed = 1.5f;
     public float deathImpulse = 5;
+    public float checkWhenShotTime = 1f;
 }

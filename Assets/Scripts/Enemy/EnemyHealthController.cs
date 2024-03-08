@@ -25,7 +25,12 @@ public class EnemyHealthController : MonoBehaviour
 
     public void TakeDamage(int damage, Vector3 impactDirection)
     {
-        if (isDead) return;
+        if (isDead)
+            return;
+        else if (agent.stateMachine.currentStateId == StateId.Patrolling)
+        {
+            transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
+        }
 
         currentHealth -= damage;
 
