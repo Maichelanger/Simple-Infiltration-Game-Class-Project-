@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HealthPackController : MonoBehaviour
@@ -10,7 +8,8 @@ public class HealthPackController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerHitBox>().Heal(healthAmount);
+            other.GetComponent<PlayerHealthController>().Heal(healthAmount);
+            Destroy(gameObject);
         }
     }
 }

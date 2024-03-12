@@ -3,11 +3,11 @@ using UnityEngine.UI;
 
 public class HealthBarController : MonoBehaviour
 {
-    internal Slider healthBarSlider;
+    public Slider healthBarSlider;
 
     private void Start()
     {
-        healthBarSlider = GetComponent<Slider>();
+        //healthBarSlider = GetComponent<Slider>();
     }
 
     public void UpdateValue(float value)

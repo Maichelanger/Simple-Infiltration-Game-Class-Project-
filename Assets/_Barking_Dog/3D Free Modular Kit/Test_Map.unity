@@ -4210,6 +4210,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1753235008}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1170407143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1457766696985558204, guid: 501f32b74b6d4f348a8cab07c8c73cb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2906714423786670317}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1170407144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170407143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28172a83755d255419d34e4925d19294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthAmount: 25
 --- !u!1001 &1206673541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5183,6 +5202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae0562d37cb13d34f94cd84ddbd48f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBarSlider: {fileID: 1432039276}
 --- !u!114 &1432039276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8873,7 +8893,7 @@ PrefabInstance:
     - target: {fileID: 5059269497600561798, guid: 501f32b74b6d4f348a8cab07c8c73cb4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.794
+      value: 1.293
       objectReference: {fileID: 0}
     - target: {fileID: 5059269497600561798, guid: 501f32b74b6d4f348a8cab07c8c73cb4,
         type: 3}
@@ -8918,7 +8938,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1457766696985558204, guid: 501f32b74b6d4f348a8cab07c8c73cb4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1170407144}
   m_SourcePrefab: {fileID: 100100000, guid: 501f32b74b6d4f348a8cab07c8c73cb4, type: 3}
 --- !u!1001 &8206470463455695037
 PrefabInstance:

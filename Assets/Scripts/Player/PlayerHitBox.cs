@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHitBox : MonoBehaviour
@@ -11,11 +9,5 @@ public class PlayerHitBox : MonoBehaviour
     {
         Debug.Log("Player hit");
         healthController.TakeDamage(damage);
-    }
-
-    public void Heal(float amount)
-    {
-        Debug.Log("Player healed");
-        healthController.Heal(amount);
     }
 }
