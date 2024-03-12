@@ -13,12 +13,14 @@ public class EnemyRagdoll : MonoBehaviour
         DisableRagdoll();
     }
 
-    public void EnableRagdoll()
+    public void EnableRagdoll(AiAgent agent)
     {
         foreach (Rigidbody rb in rigidbodies)
         {
             rb.isKinematic = false;
         }
+
+        agent.aiRb.isKinematic = true;
 
         animator.enabled = false;
     }

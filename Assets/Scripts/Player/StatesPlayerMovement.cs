@@ -121,12 +121,14 @@ public class StatesPlayerMovement : MonoBehaviour
             agent.cameraRoot.localPosition = new Vector3(0f, agent.playerConfig.standHeight, 0f);
             currentSpeed = agent.playerConfig.walkSpeed;
             agent.isCrouching = false;
+            agent.stateMachine.ChangeState(PlayerStateId.Walking, isExceptional: true);
         }
         else
         {
             agent.cameraRoot.localPosition = new Vector3(0f, agent.playerConfig.crouchHeight, 0f);
             currentSpeed = agent.playerConfig.crouchSpeed;
             agent.isCrouching = true;
+            agent.stateMachine.ChangeState(PlayerStateId.Walking, isExceptional: true);
         }
     }
 

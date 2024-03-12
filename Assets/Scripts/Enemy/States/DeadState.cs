@@ -7,7 +7,7 @@ public class DeadState : State
     public void Enter(AiAgent agent)
     {
         agent.navAgent.enabled = false;
-        agent.ragdoll.EnableRagdoll();
+        agent.ragdoll.EnableRagdoll(agent);
         agent.ragdoll.ApplyForce(impactDirection * agent.config.deathImpulse);
 
         agent.weapon.GetComponent<Collider>().enabled = true;

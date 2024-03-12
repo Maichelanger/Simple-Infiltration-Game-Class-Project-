@@ -1,6 +1,4 @@
-﻿using System;
-
-internal class WalkingState : PlayerState
+﻿internal class WalkingState : PlayerState
 {
     public void Enter(PlayerAgent agent)
     {

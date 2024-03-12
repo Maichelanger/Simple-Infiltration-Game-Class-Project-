@@ -17,6 +17,7 @@ public class AiAgent : MonoBehaviour
     internal StateMachine stateMachine;
     internal FieldOfView fieldOfView;
     internal WeaponIk weaponIk;
+    internal Rigidbody aiRb;
 
     private bool inGivingUpCooldown = false;
 
@@ -26,6 +27,8 @@ public class AiAgent : MonoBehaviour
         ragdoll = GetComponent<EnemyRagdoll>();
         fieldOfView = GetComponent<FieldOfView>();
         weaponIk = GetComponent<WeaponIk>();
+        aiRb = GetComponent<Rigidbody>();
+
         stateMachine = new StateMachine(this);
         RegisterStates();
         stateMachine.ChangeState(initialState);

@@ -53,7 +53,7 @@ public class EnemyStatesController : MonoBehaviour
     private void DeadState()
     {
         agent.enabled = false;
-        ragdoll.EnableRagdoll();
+        //ragdoll.EnableRagdoll();
         ragdoll.ApplyForce(Vector3.forward * 5);
 
         Destroy(gameObject, 5);
