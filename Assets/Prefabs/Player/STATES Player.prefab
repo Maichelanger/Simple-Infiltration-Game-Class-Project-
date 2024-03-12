@@ -75,7 +75,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 695
+    m_Bits: 1719
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -397,7 +397,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.527
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -452,12 +452,12 @@ MonoBehaviour:
   minVol: 0
   maxVol: 0
   footstepSounds:
-  - {fileID: 8300000, guid: 0b1a87fb5436ffa43a5d4932728bce43, type: 3}
-  - {fileID: 8300000, guid: c1379945bfb10bd41a99b112783b7c55, type: 3}
-  - {fileID: 8300000, guid: 13077f0368e38ff4b94a706768c8a012, type: 3}
-  - {fileID: 8300000, guid: 47852a4a3a66b184d80ce638a18f6027, type: 3}
-  shootingSound: {fileID: 8300000, guid: d9d42765ad2297e44a7a4718738fadbd, type: 3}
-  winningSound: {fileID: 0}
+  - {fileID: 8300000, guid: d772d1b334ef5f148bf1308d5fb3e4b0, type: 3}
+  - {fileID: 8300000, guid: d51df139d4e50794993d2130348b08d9, type: 3}
+  - {fileID: 8300000, guid: 22dffeeb60f8846499a8c08a2c0e6f80, type: 3}
+  - {fileID: 8300000, guid: 6056a660bb0897e4ea25a31889075437, type: 3}
+  shootingSound: {fileID: 8300000, guid: 67ff0f1f4f6f24ad5ac07ccfd34636fd, type: 3}
+  winningSound: {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
   stepDistance: 0
 --- !u!1 &3554117072233372122
 GameObject:
@@ -5661,7 +5661,7 @@ CharacterController:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 375
+    m_Bits: 503
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
