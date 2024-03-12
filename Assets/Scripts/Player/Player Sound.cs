@@ -6,6 +6,7 @@ public class PlayerSound : MonoBehaviour
 
     [SerializeField] private AudioClip[] footstepSounds;
     [SerializeField] private AudioClip shootingSound;
+    [SerializeField] private AudioClip winningSound;
     [HideInInspector] public float stepDistance;
 
     private AudioSource audioSource;
@@ -55,5 +56,10 @@ public class PlayerSound : MonoBehaviour
     public void PlayShootingSound()
     {
         audioSource.PlayOneShot(shootingSound);
+    }
+
+    public void PlayWinningSound()
+    {
+        audioSource.PlayOneShot(winningSound);
     }
 }

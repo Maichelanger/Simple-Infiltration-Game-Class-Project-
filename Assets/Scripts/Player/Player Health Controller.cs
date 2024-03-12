@@ -37,7 +37,8 @@ public class PlayerHealthController : MonoBehaviour
 
     public void Heal(float healAmount)
     {
-        if (isDead) return;
+        if (isDead)
+            return;
 
         currentHealth += healAmount;
 

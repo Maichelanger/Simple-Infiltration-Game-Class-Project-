@@ -2,6 +2,7 @@ public class LostGameState : PlayerState
 {
     public void Enter(PlayerAgent agent)
     {
+        agent.bgm.Stop();
         agent.DisableAudioListener();
         agent.DeadPanel.SetActive(true);
         agent.blockedControls = true;

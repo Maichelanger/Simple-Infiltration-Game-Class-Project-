@@ -64,6 +64,11 @@ public class StatesPlayerMovement : MonoBehaviour
             agent.weaponAnimator.SetFloat("Speed", Mathf.MoveTowards(agent.weaponAnimator.GetFloat("Speed"), currentSpeed, Time.deltaTime * 20));
     }
 
+    internal void SendSpeedToAnimator(float speed)
+    {
+        agent.weaponAnimator.SetFloat("Speed", speed);
+    }
+
     private void MovementCalculation()
     {
         moveDirection = new Vector3(movementInput.x, 0.0f, movementInput.y);

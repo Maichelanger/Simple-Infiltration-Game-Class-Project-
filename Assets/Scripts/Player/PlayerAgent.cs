@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class PlayerAgent : MonoBehaviour
 {
+    public AudioSource bgm;
     public PlayerConfig playerConfig;
     public Animator weaponAnimator;
     public Animator fpCameraAnimator;
     public RaycastWeapon raycastWeapon;
     public Transform playerSight;
     public GameObject DeadPanel;
+    public GameObject WonPanel;
 
     [SerializeField] private PlayerStateId initialState;
 
@@ -46,6 +48,7 @@ public class PlayerAgent : MonoBehaviour
         stateMachine.RegisterState(new RunningState());
         stateMachine.RegisterState(new AimingState());
         stateMachine.RegisterState(new LostGameState());
+        stateMachine.RegisterState(new WonGameState());
     }
 
     internal void DisableAudioListener()
@@ -57,5 +60,11 @@ public class PlayerAgent : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
+    public void GotObjective()
+    {
+        GetComponent<PlayerHealthController>().isDead = true;
+        stateMachine.ChangeState(PlayerStateId.WonGame, isExceptional: false);
     }
 }
