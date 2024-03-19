@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3345468}
   - component: {fileID: 2344054}
   - component: {fileID: 64141808927475550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 492620}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door_Arch_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 6184324477251113073}
   - component: {fileID: 4637622959524563850}
   - component: {fileID: 8945694932555822088}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Spotlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
