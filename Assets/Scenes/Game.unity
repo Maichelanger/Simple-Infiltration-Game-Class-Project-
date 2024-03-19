@@ -53838,6 +53838,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1065379474627631120, guid: b674a55b3608eb14f80be865c2dd7e4a,
+        type: 3}
+      propertyPath: viewAngle
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065379474627631120, guid: b674a55b3608eb14f80be865c2dd7e4a,
+        type: 3}
+      propertyPath: viewRadius
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 1792376479029149993, guid: b674a55b3608eb14f80be865c2dd7e4a,
         type: 3}
       propertyPath: patrollingTargets.Array.size
